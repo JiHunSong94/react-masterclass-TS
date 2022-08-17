@@ -46,7 +46,7 @@ function Chart({ coinId }: ChartProps) {
               axisTicks: { show: false },
               labels: { show: false },
               type: "datetime",
-              categories: data?.map((price) => price.time_close),
+              categories: data?.map((price) => price.time_close * 1000),
             },
             fill: {
               type: "gradient",
