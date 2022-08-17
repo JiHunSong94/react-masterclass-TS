@@ -45,11 +45,26 @@ function Chart({ coinId }: ChartProps) {
               axisBorder: { show: false },
               axisTicks: { show: false },
               labels: { show: false },
+              type: "datetime",
+              categories: data?.map((price) => price.time_close),
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                gradientToColors: ["#0be881"],
+                stops: [0, 100],
+              },
+            },
+            colors: ["#0fbcf9"],
+            tooltip: {
+              y: {
+                formatter: (value) => `$${value.toFixed(2)}`,
+              },
             },
           }}
           series={[
             {
-              name: "price",
+              name: "Price",
               data: data?.map((price) => parseFloat(price.close)) as number[],
             },
           ]}
