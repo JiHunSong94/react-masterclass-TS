@@ -30,7 +30,7 @@ const Container = styled.div`
 `;
 
 const Header = styled.header`
-  height: 10vh;
+  height: 15vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,12 +42,13 @@ const Overview = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   padding: 10px 20px;
   border-radius: 10px;
-  color: white;
+  color: ${(props) => props.theme.textColor};
 `;
 const OverviewItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 33%;
 
   span:first-child {
     font-size: 10px;
@@ -59,7 +60,6 @@ const OverviewItem = styled.div`
 
 const Description = styled.p`
   margin: 20px 0px;
-  color: white;
 `;
 
 const Tabs = styled.div`
@@ -67,7 +67,6 @@ const Tabs = styled.div`
   grid-template-columns: repeat(2, 1fr);
   margin: 25px 0px;
   gap: 10px;
-  color: white;
 `;
 
 const Tab = styled.span<{ isActive: boolean }>`
@@ -76,11 +75,11 @@ const Tab = styled.span<{ isActive: boolean }>`
   font-size: 12px;
   font-weight: 400;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 7px 0px;
   border-radius: 10px;
   color: ${(props) =>
-      props.isActive ? props.theme.accentColor : props.theme.textColor}
-    a {
+    props.isActive ? props.theme.accentColor : props.theme.textColor};
+  a {
+    padding: 7px 0px;
     display: block;
   }
 `;
