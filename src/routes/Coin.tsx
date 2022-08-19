@@ -161,11 +161,9 @@ interface PriceData {
   };
 }
 
-interface ICoinProps {
-  isDark: boolean;
-}
+interface ICoinProps {}
 
-function Coin({ isDark }: ICoinProps) {
+function Coin({}: ICoinProps) {
   const { coinId } = useParams<"coinId">() as RouteParams;
   const { state } = useLocation() as LocationState;
   const priceMatch = useMatch("/:coinId/price");
@@ -237,10 +235,7 @@ function Coin({ isDark }: ICoinProps) {
 
       <Routes>
         <Route path={"price"} element={<Price />} />
-        <Route
-          path={"chart"}
-          element={<Chart isDark={isDark} coinId={coinId} />}
-        />
+        <Route path={"chart"} element={<Chart coinId={coinId} />} />
       </Routes>
     </Container>
   );
